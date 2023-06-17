@@ -1,1 +1,34 @@
-<p>settings works!</p>
+<mat-accordion>
+    <mat-expansion-panel>
+        <mat-expansion-panel-header>
+            <mat-panel-title>
+                Baby
+            </mat-panel-title>
+        </mat-expansion-panel-header>
+        <p>Hier kun je de naam van de baby veranderen.</p>
+        <form class="form" #form="ngForm" (ngSubmit)="babyName = babyNameModel.value; form.reset()">
+            <mat-form-field>
+                <input matInput name="babyName" [ngModel]="babyName" placeholder="naam van de baby"
+                    #babyNameModel="ngModel" required>
+                <mat-error *ngIf="babyNameModel.invalid">Geef het kind toch alsjeblieft een naam!</mat-error>
+            </mat-form-field>
+            <mat-action-row>
+                <button type="submit" mat-raised-button color="primary"
+                    [disabled]="babyNameModel.invalid || babyNameModel.pristine">Opslaan</button>
+            </mat-action-row>
+        </form>
+    </mat-expansion-panel>
+    <mat-expansion-panel>
+        <mat-expansion-panel-header>
+            <mat-panel-title>
+                Tijdslijn
+            </mat-panel-title>
+        </mat-expansion-panel-header>
+        <p>Om de gegevens in de tijdslijn te wissen, klik op de "Tijdslijn Wissen"-knop.</p>
+        <form class="form" #form="ngForm" (ngSubmit)="babyName = babyNameModel.value; form.reset()">
+            <mat-action-row>
+                <button mat-raised-button color="warn" (click)="clearTimeLine()">Tijdslijn Wissen</button>
+            </mat-action-row>
+        </form>
+    </mat-expansion-panel>
+</mat-accordion>

@@ -1,11 +1,11 @@
 <mat-sidenav-container>
   <mat-sidenav #sidenav mode="side" class="sidenav">
     <mat-nav-list role="navigation">
-        <a mat-list-item routerLink="timeline">
+        <a mat-list-item routerLink="timeline" routerLinkActive="active">
           <mat-icon matListIcon>timeline</mat-icon>
           Timeline
         </a>
-        <a mat-list-item routerLink="settings">
+        <a mat-list-item routerLink="settings" routerLinkActive="active">
           <mat-icon matListIcon>settings</mat-icon>
           Settings
         </a>
@@ -17,6 +17,10 @@
         <mat-icon>menu</mat-icon>
       </button>
       Babywatch
+      <div class="stretch"></div>
+      <button class="theme-button" (click)="toggleTheme()" mat-icon-button>
+        <mat-icon>invert_colors</mat-icon>
+      </button>
     </mat-toolbar>
     <main class="content">
       <router-outlet></router-outlet>
